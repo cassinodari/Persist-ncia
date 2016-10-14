@@ -3,6 +3,7 @@ package br.edu.uricer;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,7 +19,7 @@ public class TestaPesquisa {
         
 
         String sql = "select * from Pessoas";
-        Statement stm = con.createStatement();
+        PreparedStatement stm = con.prepareStatement(sql);
         boolean resultado = stm.execute(sql);
         System.out.println("Resultado: " + resultado);
 
@@ -28,7 +29,6 @@ public class TestaPesquisa {
             String nome = resultSet.getString("nome");
             System.out.println(nome);
         }
-        
         con.close();
         stm.close();
         resultSet.close();
