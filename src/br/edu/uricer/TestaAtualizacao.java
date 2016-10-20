@@ -13,7 +13,7 @@ public class TestaAtualizacao {
         
 
         String sql = "update Pessoas set nome = ? where id = ?";
-        PreparedStatement stm = con.PrepareStatement(sql);
+        PreparedStatement stm = con.prepareStatement(sql);
         stm.setString(1, "XXXXX");
         stm.setInt(2, 3);
 
